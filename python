@@ -1,0 +1,33 @@
+""" Neha is developing a text-processing tool and needs assistance with counting the occurrences of a specific character in a given string. She plans to implement a recursive function that iterates through the string character by character, checking if each character matches the specified one.
+
+
+
+Your task is to assist Neha in implementing this recursive function.
+
+Input format :
+The first line contains the string (S) on which the occurrences are to be counted.
+
+The second line contains a single character (C) to count occurrences.
+
+Output format :
+The output prints the integer, representing the number of occurrences of the specified character in the given string.
+
+"""
+
+def count_occurrences_recursive(s, char, index):
+    # Base case: If the index is out of bounds, return 0
+    if index >= len(s):
+        return 0
+    # If the character at the current index matches the given character, increment count
+    count = 1 if s[index] == char else 0
+    # Recur for the rest of the string
+    return count + count_occurrences_recursive(s, char, index + 1)
+
+if __name__ == "__main__":
+    # Input string
+    s = input()
+    # Character to count occurrences
+    char = input()[0]
+    # Call the recursive function to count occurrences
+    occurrences = count_occurrences_recursive(s, char, 0)
+    print(occurrences)
